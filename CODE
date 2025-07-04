@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOGO Offer</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      color: #f25b84;
+      margin: 20px 0;
+    }
+    .container {
+      border: 2px solid #00aaff;
+      width: 360px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .option {
+      border: 2px solid transparent;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .option input {
+      margin-right: 10px;
+    }
+    .badge {
+      background: #ff4081;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 10px;
+      margin-left: 5px;
+    }
+    .most-popular {
+      border: 2px solid #f25b84;
+      background-color: #fff0f5;
+    }
+    .most-popular-tag {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #f25b84;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .details {
+      margin-left: 25px;
+    }
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .variant {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    select {
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .footer {
+      font-size: 14px;
+      margin: 10px 0;
+      color: red;
+    }
+    .total {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .add-to-cart {
+      background-color: #f25b84;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .powered {
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>YAY! It's BOGO</h2>
+  <div class="container">
+    <div class="option">
+      <input type="radio" name="unit" id="unit1" onclick="updateTotal(10)">
+      <label for="unit1" class="details">
+        1 Unit <span class="badge">10% Off</span><br>
+        <div class="price-line">
+          <span>$10.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="option most-popular">
+      <span class="most-popular-tag">MOST POPULAR</span>
+      <input type="radio" name="unit" id="unit2" checked onclick="updateTotal(18)">
+      <label for="unit2" class="details">
+        2 Unit <span class="badge">20% Off</span><br>
+        <div class="variant">
+          <select>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+          </select>
+          <select>
+            <option>Black</option>
+            <option>White</option>
+            <option>Red</option>
+          </select>
+        </div>
+        <div class="variant">
+          <select>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+          </select>
+          <select>
+            <option>Colour</option>
+            <option>Black</option>
+            <option>White</option>
+          </select>
+        </div>
+        <div class="price-line">
+          <span>$18.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="option">
+      <input type="radio" name="unit" id="unit3" onclick="updateTotal(24)">
+      <label for="unit3" class="details">
+        3 Unit <span class="badge">30% Off</span><br>
+        <div class="price-line">
+          <span>$24.00 USD</span>
+          <span class="old-price">$24.00 USD</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="footer">Free Delivery</div>
+    <div class="total" id="total">Total : $18.00 USD</div>
+    <button class="add-to-cart">+ Add to Cart</button>
+    <div class="powered">@ Powered by Pumper</div>
+  </div>
+
+  <script>
+    function updateTotal(amount) {
+      document.getElementById("total").innerText = `Total : $${amount.toFixed(2)} USD`;
+    }
+  </script>
+</body>
+</html>
